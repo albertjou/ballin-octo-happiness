@@ -12,17 +12,18 @@ secret = (start_at..end_at).to_a.sample
 
 puts "I've thought of a number, what are you going to guess."
 answer = gets.chomp.to_i
-
+number_of_attempts = 1
 # Use a while loop to let the user guess again until he/she gets the answer right.
 while answer > end_at
   puts "Sorry, that's out of the range"
-  answer = gets.chomop.to_i
+  answer = gets.chomp.to_i
 end
 while answer != secret
   puts "Sorry, that's not what I'm thinking. "
+  number_of_attempts =
 print (answer > secret) ? "Try something smaller\n" : "Try something bigger\n"
   answer = gets.chomp.to_i
 end
 
 # Display a congratulatory response
-puts "that's it!  How'd you know?!"
+puts "That's it! It took you #{number_of_attempts} turn to get it right"
