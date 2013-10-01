@@ -7,6 +7,11 @@ puts "What did you want to start at"
 start_at = gets.chomp.to_i
 puts "What about the end value"
 end_at = gets.chomp.to_i
+if (end_at < start_at)
+  temp_at = end_at
+  end_at = start_at
+  start_at = temp_at
+end
 # Generate a random number
 secret = (start_at..end_at).to_a.sample
 
@@ -20,10 +25,10 @@ while answer > end_at
 end
 while answer != secret
   puts "Sorry, that's not what I'm thinking. "
-  number_of_attempts =
+  number_of_attempts += 1
 print (answer > secret) ? "Try something smaller\n" : "Try something bigger\n"
   answer = gets.chomp.to_i
 end
 
 # Display a congratulatory response
-puts "That's it! It took you #{number_of_attempts} turn to get it right"
+puts "That's it! It took you #{number_of_attempts} turns to get it right"
